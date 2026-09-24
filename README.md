@@ -392,17 +392,6 @@ Acesse: **http://localhost:5555**
 
 ---
 
-## 📖 Documentação Adicional
-
-Este projeto possui documentação completa e detalhada em arquivos separados:
-
-| Documento | Descrição |
-|-----------|-----------|
-| **[ARCHITECTURE.md](ARCHITECTURE.md)** | Documentação completa da arquitetura, padrões de projeto, princípios SOLID e ADRs |
-| **[REVIEW_GUIDE.md](REVIEW_GUIDE.md)** | Guia completo para revisar banco de dados, autenticação, segurança e qualidade do código |
-| **[EXAMPLES.md](EXAMPLES.md)** | Exemplos práticos de uso da API com PowerShell, incluindo script de testes completo |
-| **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** | Resumo executivo do projeto com métricas e checklist de qualidade |
-
 ### 🎯 Como Revisar o Projeto
 
 Para uma revisão completa, consulte o [REVIEW_GUIDE.md](REVIEW_GUIDE.md) que contém:
