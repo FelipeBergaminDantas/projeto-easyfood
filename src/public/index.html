@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyFood - Encontre seu restaurante favorito</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="logo">🍔 EasyFood</h1>
+        <nav class="nav">
+          <button id="btnHome" class="nav-btn active">Restaurantes</button>
+          <button id="btnAuth" class="nav-btn">Login</button>
+          <button id="btnProfile" class="nav-btn hidden">Perfil</button>
+          <button id="btnLogout" class="nav-btn hidden">Sair</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      
+      <!-- Home Section - Lista de Restaurantes -->
+      <section id="homeSection" class="section">
+        <div class="section-header">
+          <h2>Restaurantes Disponíveis</h2>
+          <button id="btnNewRestaurant" class="btn btn-primary hidden">
+            + Novo Restaurante
+          </button>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filters">
+          <input 
+            type="text" 
+            id="filterName" 
+            class="input" 
+            placeholder="🔍 Buscar por nome..."
+          >
+          <input 
+            type="text" 
+            id="filterCategory" 
+            class="input" 
+            placeholder="🏷️ Filtrar por categoria..."
+          >
+          <button id="btnClearFilters" class="btn btn-secondary">Limpar</button>
+        </div>
+
+        <!-- Grid de Restaurantes -->
+        <div id="restaurantGrid" class="restaurant-grid">
+          <div class="loading">Carregando restaurantes...</div>
+        </div>
+      </section>
+
+      <!-- Auth Section - Login e Registro -->
+      <section id="authSection" class="section hidden">
+        <div class="auth-container">
+          
+          <!-- Login Form -->
+          <div id="loginForm" class="auth-form">
+            <h2>Login</h2>
+            <form id="formLogin">
+              <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input 
+                  type="email" 
+                  id="loginEmail" 
+                  class="input" 
+                  placeholder="seu@email.com"
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="loginPassword">Senha</label>
+                <input 
+                  type="password" 
+                  id="loginPassword" 
+                  class="input" 
+                  placeholder="••••••••"
+                  required
+                >
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+              <p class="auth-switch">
+                Não tem conta? 
+                <a href="#" id="linkToRegister">Cadastre-se</a>
+              </p>
+            </form>
+          </div>
+
+          <!-- Register Form -->
+          <div id="registerForm" class="auth-form hidden">
+            <h2>Cadastro</h2>
+            <form id="formRegister">
+              <div class="form-group">
+                <label for="registerName">Nome Completo</label>
+                <input 
+                  type="text" 
+                  id="registerName" 
+                  class="input" 
+                  placeholder="Seu nome"
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input 
+                  type="email" 
+                  id="registerEmail" 
+                  class="input" 
+                  placeholder="seu@email.com"
+                  required
+                >
+              </div>
+              <div class="form-group">
+                <label for="registerPassword">Senha</label>
+                <input 
+                  type="password" 
+                  id="registerPassword" 
+                  class="input" 
+                  placeholder="Mínimo 6 caracteres"
+                  required
+                  minlength="6"
+                >
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Cadastrar</button>
+              <p class="auth-switch">
+                Já tem conta? 
+                <a href="#" id="linkToLogin">Faça login</a>
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Profile Section -->
+      <section id="profileSection" class="section hidden">
+        <div class="profile-container">
+          <h2>Meu Perfil</h2>
+          <div id="profileData" class="profile-data">
+            <div class="loading">Carregando perfil...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- New Restaurant Form Section -->
+      <section id="newRestaurantSection" class="section hidden">
+        <div class="form-container">
+          <h2>Cadastrar Novo Restaurante</h2>
+          <form id="formNewRestaurant">
+            <div class="form-group">
+              <label for="restaurantName">Nome do Restaurante</label>
+              <input 
+                type="text" 
+                id="restaurantName" 
+                class="input" 
+                placeholder="Ex: Pizzaria Bella Napoli"
+                required
+              >
+            </div>
+            <div class="form-group">
+              <label for="restaurantCategory">Categoria</label>
+              <input 
+                type="text" 
+                id="restaurantCategory" 
+                class="input" 
+                placeholder="Ex: Italiana, Japonesa, Fast Food"
+                required
+              >
+            </div>
+            <div class="form-group">
+              <label for="restaurantDescription">Descrição</label>
+              <textarea 
+                id="restaurantDescription" 
+                class="input textarea" 
+                placeholder="Descreva o restaurante..."
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="restaurantAddress">Endereço</label>
+              <input 
+                type="text" 
+                id="restaurantAddress" 
+                class="input" 
+                placeholder="Ex: Rua das Flores, 123 - Centro"
+                required
+              >
+            </div>
+            <div class="form-group">
+              <label for="restaurantPhone">Telefone</label>
+              <input 
+                type="text" 
+                id="restaurantPhone" 
+                class="input" 
+                placeholder="(11) 98765-4321"
+                required
+              >
+            </div>
+            <div class="form-group">
+              <label for="restaurantRating">Avaliação (0-5)</label>
+              <input 
+                type="number" 
+                id="restaurantRating" 
+                class="input" 
+                placeholder="4.5"
+                min="0"
+                max="5"
+                step="0.1"
+              >
+            </div>
+            <div class="form-actions">
+              <button type="button" id="btnCancelNew" class="btn btn-secondary">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Toast Notifications -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
